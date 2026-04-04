@@ -8,16 +8,16 @@ pool:
 
 
 steps:
-# Fix execution policy
-- powershell: |
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-  displayName: 'Fix PowerShell Execution Policy'
-
-# Install Python
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.10'
-    addToPath: true
+## Fix execution policy
+#- powershell: |
+#    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
+#  displayName: 'Fix PowerShell Execution Policy'
+#
+## Install Python
+#- task: UsePythonVersion@0
+#  inputs:
+#    versionSpec: '3.10'
+#    addToPath: true
 
 #- task: UsePythonVersion@0
 #  inputs:
