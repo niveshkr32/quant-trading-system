@@ -8,23 +8,23 @@ pool:
 
 
 steps:
-## Fix execution policy
-#- powershell: |
-#    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-#  displayName: 'Fix PowerShell Execution Policy'
-#
-## Install Python
-#- task: UsePythonVersion@0
-#  inputs:
-#    versionSpec: '3.10'
-#    addToPath: true
 
-#- task: UsePythonVersion@0
-#  inputs:
-#    versionSpec: '3.10'
+- powershell: |
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
+  displayName: 'Fix Execution Policy'
 
-- script: |
-    pip install -r requirements.txt
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10'
+    addToPath: true
+
+- script: python --version
+  displayName: 'Check Python Version'
+
+- script: pip install --upgrade pip
+  displayName: 'Upgrade pip'
+
+- script: pip install -r requirements.txt
   displayName: 'Install dependencies'
 
 - script: |
