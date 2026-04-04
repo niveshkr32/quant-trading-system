@@ -10,8 +10,8 @@ pool:
 steps:
 
 - powershell: |
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-  displayName: 'Fix Execution Policy'
+    Set-ExecutionPolicy Bypass -Scope Process -Force
+  displayName: 'Fix PowerShell Policy'
 
 - task: UsePythonVersion@0
   inputs:
