@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  name: stock-pool
+
+#  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10'
+
+- script: |
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    python app/main.py
+  displayName: 'Run trading system'
